@@ -53,6 +53,7 @@ class TaskStatusController extends Controller
      */
     public function destroy(TaskStatus $taskStatus)
     {
-        return $this->service->destroy($taskStatus);
+        $this->service->destroy($taskStatus);
+        return response()->json(['message' => 'deleted']);
     }
 }

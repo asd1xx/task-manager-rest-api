@@ -31,6 +31,5 @@ class TaskStatusService implements TaskStatusServiceInterface
     public function destroy(TaskStatus $taskStatus)
     {
         $taskStatus->delete();
-        return response()->json(['message' => 'deleted']);
     }
 }
