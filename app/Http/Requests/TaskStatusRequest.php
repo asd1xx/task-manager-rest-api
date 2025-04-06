@@ -23,7 +23,7 @@ class TaskStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:255', Rule::unique('task_statuses', 'name')->ignore($this->task_status)],
+            'name' => 'required|unique:task_statuses|max:255',
         ];
     }
 }
