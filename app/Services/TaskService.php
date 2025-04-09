@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Resources\TaskResource;
 use App\Interfaces\TaskServiceInterface;
 use App\Models\Task;
 
@@ -9,23 +10,23 @@ class TaskService implements TaskServiceInterface
 {
     public function index()
     {
-        return Task::all();
+        return TaskResource::collection(Task::all());
     }
 
     public function store(array $data)
     {
-        return Task::create($data);
+        return new TaskResource(Task::create($data));
     }
 
     public function show(Task $task)
     {
-        return $task;
+        return new TaskResource($task);
     }
 
     public function update(Task $task, array $data)
     {
         $task->update($data);
-        return $task;
+        return new TaskResource($task);
     }
 
     public function destroy(Task $task)
