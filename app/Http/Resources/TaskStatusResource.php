@@ -16,7 +16,7 @@ class TaskStatusResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' =>$this->id,
+            'id' => $this->id,
             'name' => $this->name,
             'createdAt' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
             'updatedAt' => Carbon::parse($this->updated_at)->format('Y-m-d H:i:s'),
