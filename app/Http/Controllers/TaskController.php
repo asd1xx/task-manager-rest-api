@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskRequest;
+use App\Http\Responses\ApiResponse;
 use App\Interfaces\TaskServiceInterface;
 use App\Models\Task;
 
@@ -55,6 +56,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $this->service->destroy($task);
-        return response()->json(['message' => 'deleted']);
+        return ApiResponse::sendResponse('deleted');
     }
 }
