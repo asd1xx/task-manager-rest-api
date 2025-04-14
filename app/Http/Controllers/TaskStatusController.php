@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskStatusRequest;
+use App\Http\Responses\ApiResponse;
 use App\Interfaces\TaskStatusServiceInterface;
 use App\Models\TaskStatus;
 
@@ -14,6 +15,7 @@ class TaskStatusController extends Controller
     {
         $this->service = $service;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -54,6 +56,6 @@ class TaskStatusController extends Controller
     public function destroy(TaskStatus $taskStatus)
     {
         $this->service->destroy($taskStatus);
-        return response()->json(['message' => 'deleted']);
+        return ApiResponse::sendResponse('deleted');
     }
 }
