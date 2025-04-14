@@ -19,7 +19,7 @@ class TaskResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->when(Route::currentRouteName() === 'tasks.show', $this->description),
+            'description' => $this->when(Route::currentRouteName() !== 'tasks.index', $this->description),
             'statusId' => $this->status_id,
             'statusName' => $this->status->name,
             'createdById' => $this->created_by_id,
